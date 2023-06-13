@@ -1,0 +1,3 @@
+sudo docker container run -d -it devopsdockeruh/simple-web-service:alpine
+sudo docker exec -it 665f sh
+cat text.log
