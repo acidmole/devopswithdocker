@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: rontti
+    ports:
+      - 5000:5000
+    container_name: rontti-2_4
+
+  backend:
+    image: bakki
+    ports:
+    - 8080:8080
+    container_name: bakki-2_4
+    environment:
+      REDIS_HOST: redis-2_4
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    container_name: redis-2_4
