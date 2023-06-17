@@ -1,0 +1,4 @@
+docker-compose.yml and Dockerfiles for both backend and frontend are located in the folder ex09/.
+
+I simply added one single line to docker-compose.yml to backend environment:
+REQUEST_ORIGIN: http://localhost

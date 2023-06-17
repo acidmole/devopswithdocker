@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: rontti
+    ports:
+      - 5000:5000
+    container_name: rontti-2_6
+
+  backend:
+    image: bakki
+    ports:
+    - 8080:8080
+    container_name: bakki-2_6
+    environment:
+      REDIS_HOST: redis-2_6
+      POSTGRES_HOST: database-2_6
+      POSTGRES_PORT: 5432
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    container_name: redis-2_6
+
+  database:
+    image: postgres
+    ports:
+      - 5432
+    container_name: database-2_6
+    environment:
+      POSTGRES_HOST: database
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
