@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - part3/ex01
+      - .github/*
     branches:
       - master
     
