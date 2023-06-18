@@ -24,7 +24,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: cd part3/ex01
       -
         name: Build and push
         uses: docker/build-push-action@v2
