@@ -2,9 +2,11 @@ name: Release NodeJS app
 
 on:
   push:
+    paths:
+      - part3/ex01
     branches:
       - master
-
+    
 jobs:
   login:
     runs-on: ubuntu-latest
