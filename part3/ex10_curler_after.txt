@@ -1,0 +1,21 @@
+FROM ubuntu:20.04 AS build-stage
+
+WORKDIR /usr/src/app
+
+COPY browser.sh .
+
+RUN apt-get update && apt-get -y install curl
+
+FROM alpine:latest
+
+WORKDIR /usr/src/app
+
+COPY --from=build-stage /usr/src/app/browser.sh .
+
+RUN apk add --no-cache curl && adduser -D appuser && chown -R appuser /usr/src/app
+
+USER appuser
+
+CMD ["./browser.sh"]
+
+

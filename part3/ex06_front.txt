@@ -1,0 +1,19 @@
+FROM ubuntu:18.04
+
+EXPOSE 5000
+
+WORKDIR /mydir
+
+COPY . .
+
+RUN apt-get update && apt-get install -y curl && \
+    curl -sL https://deb.nodesource.com/setup_16.x | bash &&  \
+    apt install -y nodejs && \
+    npm install && \
+    npm run build && \
+    npm install -g serve && \
+    useradd -m appuser
+
+USER appuser
+
+CMD ["serve", "-s", "-l", "5000", "build"]
